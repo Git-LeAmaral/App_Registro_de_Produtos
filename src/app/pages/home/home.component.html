@@ -3,7 +3,7 @@
 
   <div class="input-box">
     <label for="">Procurar:</label>
-    <input type="text" placeholder="Qual produto está buscando?">
+    <input type="text" placeholder="Qual produto está buscando?" (input)="search($event)">
   </div>
 </div>
 
@@ -21,18 +21,24 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngFor="let produto of produtos">
     <tr>
       <td>
-        <img src="assets/images/Ativo.png" alt="" style="height: 20px; width: 20px;">
-        <img src="assets/images/Inativo.png" alt="" style="height: 20px; width: 20px;">
+        <div *ngIf="produto.disponivel == true; else indisponivel">
+          <img src="assets/images/Ativo.png" alt="" style="height: 20px; width: 20px;">
+        </div>
+
+        <ng-template #indisponivel>
+          <img src="assets/images/Inativo.png" alt="" style="height: 20px; width: 20px;">
+        </ng-template>
+
       </td>
-      <td>0025</td>
-      <td>Camisa</td>
-      <td>Infantil</td>
-      <td>10</td>
-      <td>G</td>
-      <td>15,00</td>
+      <td>{{produto.codigoDoProduto}}</td>
+      <td>{{produto.nome}}</td>
+      <td>{{produto.departamento}}</td>
+      <td>{{produto.quantidade}}</td>
+      <td>{{produto.tamanho}}</td>
+      <td>{{produto.preco}}</td>
       <td>
         <button>Editar</button>
         <button>Detalhes</button>
