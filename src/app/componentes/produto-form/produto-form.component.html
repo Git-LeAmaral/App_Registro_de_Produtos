@@ -1,0 +1,45 @@
+
+<h1>Cadastrar Produto</h1>
+
+<form [formGroup]="produtoForm" (ngSubmit)="submit()" #formDit="ngForm">
+
+  <div class="input-box">
+    <label for="">Código do Produto</label>
+    <input type="text" formControlName="codigoDoProduto" placeholder="Insira o código do produto" required>
+  </div>
+
+  <div class="input-box">
+    <label for="">Nome do Produto</label>
+    <input type="text" formControlName="nome" placeholder="Insira o nome do produto" required>
+  </div>
+
+  <div class="input-box">
+    <label for="">Departamento</label>
+    <select id="departamento" formControlName="departamento" required>
+      <option value="MASCULINO">MASCULINO</option>
+      <option value="FEMININO">FEMININO</option>
+      <option value="INFANTIL">INFANTIL</option>
+    </select>
+  </div>
+
+  <div class="input-box">
+    <label for="">Quantidade</label>
+    <input type="text" formControlName="quantidade" placeholder="Insira a quantidade" required>
+  </div>
+
+  <div class="input-box">
+    <label for="">Tamanho</label>
+    <input type="text" formControlName="tamanho" placeholder="Insira o tamanho" required>
+  </div>
+
+  <div class="input-box">
+    <label for="">Preço do Produto</label>
+    <input type="text" formControlName="preco" placeholder="Insira o preço do produto" required>
+  </div>
+
+  <div class="btn-box">
+    <button type="submit">Cadastrar</button>
+    <button routerLink="">Voltar</button>
+  </div>
+
+</form>
