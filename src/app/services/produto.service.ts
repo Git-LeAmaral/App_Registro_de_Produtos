@@ -15,10 +15,18 @@ export class ProdutoService {
   constructor(private http: HttpClient) { }
 
   GetProdutos() : Observable<Response<Produto[]>> {
-    return this.http.get<Response<Produto[]>>(this.apiUrl)
+    return this.http.get<Response<Produto[]>>(this.apiUrl);
+  }
+
+  GetProduto(id : number) : Observable<Response<Produto>> {
+    return this.http.get<Response<Produto>>(`${this.apiUrl}/${id}`);
   }
 
   CreateProduto(produto: Produto) : Observable<Response<Produto[]>> {
-    return this.http.post<Response<Produto[]>>(`${this.apiUrl}`, produto)
+    return this.http.post<Response<Produto[]>>(`${this.apiUrl}`, produto);
+  }
+
+  EditarProduto(produto: Produto) : Observable<Response<Produto[]>> {
+    return this.http.put<Response<Produto[]>>(`${this.apiUrl}`, produto);
   }
 }

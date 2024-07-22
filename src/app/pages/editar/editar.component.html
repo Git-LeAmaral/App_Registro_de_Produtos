@@ -1,1 +1,3 @@
-<p>editar works!</p>
+<div *ngIf="produto">
+  <app-produto-form [btnAcao]="btnAcao" [btnTitulo]="btnTitulo" [dadosProduto]="produto" (onSubmit)="editarProduto($event)"></app-produto-form>
+</div>

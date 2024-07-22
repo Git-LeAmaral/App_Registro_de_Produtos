@@ -12,6 +12,7 @@ export class ProdutoFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Produto>();
   @Input() btnAcao!: string;
   @Input() btnTitulo!: string;
+  @Input() dadosProduto: Produto | null = null;
 
   produtoForm!: FormGroup
 
@@ -21,15 +22,18 @@ export class ProdutoFormComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //console.log(this.dadosProduto);
+
+
     this.produtoForm = new FormGroup({
-      id: new FormControl(0),
-      codigoDoProduto: new FormControl('', [Validators.required]),
-      nome: new FormControl('', [Validators.required]),
-      preco: new FormControl('', [Validators.required]),
-      departamento: new FormControl('', [Validators.required]),
-      quantidade: new FormControl('', [Validators.required]),
-      tamanho: new FormControl('', [Validators.required]),
-      disponivel: new FormControl(true),
+      id: new FormControl(this.dadosProduto ? this.dadosProduto.id : 0),
+      codigoDoProduto: new FormControl(this.dadosProduto ? this.dadosProduto.codigoDoProduto : '', [Validators.required]),
+      nome: new FormControl(this.dadosProduto ? this.dadosProduto.nome : '', [Validators.required]),
+      preco: new FormControl(this.dadosProduto ? this.dadosProduto.preco : '', [Validators.required]),
+      departamento: new FormControl(this.dadosProduto ? this.dadosProduto.departamento : '', [Validators.required]),
+      quantidade: new FormControl(this.dadosProduto ? this.dadosProduto.quantidade :'', [Validators.required]),
+      tamanho: new FormControl(this.dadosProduto ? this.dadosProduto.tamanho : '', [Validators.required]),
+      disponivel: new FormControl(this.dadosProduto ? this.dadosProduto.disponivel : true),
       dataDeEntrada: new FormControl(new Date()),
       dataDealteracao: new FormControl(new Date())
     })

@@ -2,6 +2,7 @@
 <h1>{{btnTitulo}}</h1>
 
 <form [formGroup]="produtoForm" (ngSubmit)="submit()" #formDit="ngForm">
+  <input type="hidden" formControlName="id">
 
   <div class="input-box">
     <label for="">Código do Produto</label>
