@@ -10,6 +10,9 @@ import { Produto } from 'src/app/models/Produtos';
 })
 export class CadastroComponent {
 
+  btnAcao = "Cadastrar!"
+  btnTitulo = "Cadastrar Produto"
+
   constructor(private produtoService : ProdutoService, private router: Router) {
 
   }

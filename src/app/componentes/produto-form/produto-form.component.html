@@ -1,5 +1,5 @@
 
-<h1>Cadastrar Produto</h1>
+<h1>{{btnTitulo}}</h1>
 
 <form [formGroup]="produtoForm" (ngSubmit)="submit()" #formDit="ngForm">
 
@@ -38,7 +38,7 @@
   </div>
 
   <div class="btn-box">
-    <button type="submit">Cadastrar</button>
+    <button type="submit" [disabled]="!produtoForm.valid">{{btnAcao}}</button>
     <button routerLink="">Voltar</button>
   </div>
 
