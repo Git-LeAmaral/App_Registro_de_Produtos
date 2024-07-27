@@ -1,61 +1,80 @@
+<mat-card>
+  <div>
+    <h1>Detalhes do Produto</h1>
+  </div>
 
-<div>
-  <h1>Detalhes do Produto</h1>
-</div>
 
+  <div *ngIf="produto">
+    <form>
 
-<div *ngIf="produto">
-  <form>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Código do produto:</mat-label>
+          <input matInput type="text" value="{{produto.codigoDoProduto}}" disabled>
+        </mat-form-field>
+      </div>
 
-    <div class="input-box">
-      <label>Código do produto:</label>
-      <input type="text" value="{{produto.codigoDoProduto}}" disabled>
-    </div>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Nome:</mat-label>
+          <input matInput type="text" value="{{produto.nome}}" disabled>
+        </mat-form-field>
+      </div>
 
-    <div class="input-box">
-      <label>Nome:</label>
-      <input type="text" value="{{produto.nome}}" disabled>
-    </div>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Preço:</mat-label>
+          <input matInput type="text" value="{{produto.preco}}" disabled>
+        </mat-form-field>
+      </div>
 
-    <div class="input-box">
-      <label>Preço:</label>
-      <input type="text" value="{{produto.preco}}" disabled>
-    </div>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Tamanho:</mat-label>
+          <input matInput type="text" value="{{produto.tamanho}}" disabled>
+        </mat-form-field>
+      </div>
 
-    <div class="input-box">
-      <label>Tamanho:</label>
-      <input type="text" value="{{produto.tamanho}}" disabled>
-    </div>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Quantidade:</mat-label>
+          <input matInput type="text" value="{{produto.quantidade}}" disabled>
+        </mat-form-field>
+      </div>
 
-    <div class="input-box">
-      <label>Quantidade:</label>
-      <input type="text" value="{{produto.quantidade}}" disabled>
-    </div>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Disponivel:</mat-label>
+          <input matInput type="text" value="{{produto.disponivel == true ? 'Disponível' : 'Indisponível'}}" disabled>
+        </mat-form-field>
+      </div>
 
-    <div class="input-box">
-      <label>Disponivel:</label>
-      <input type="text" value="{{produto.disponivel == true ? 'Disponível' : 'Indisponível'}}" disabled>
-    </div>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Departamento:</mat-label>
+          <input matInput type="text" value="{{produto.departamento}}" disabled>
+        </mat-form-field>
+      </div>
 
-    <div class="input-box">
-      <label>Departamento:</label>
-      <input type="text" value="{{produto.departamento}}" disabled>
-    </div>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Data de Entrada:</mat-label>
+          <input matInput type="text" value="{{produto.dataDeEntrada}}" disabled>
+        </mat-form-field>
+      </div>
 
-    <div class="input-box">
-      <label>Data de Entrada:</label>
-      <input type="text" value="{{produto.dataDeEntrada}}" disabled>
-    </div>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Data de Alteração:</mat-label>
+          <input matInput type="text" value="{{produto.dataDeAlteracao}}" disabled>
+        </mat-form-field>
+      </div>
 
-    <div class="input-box">
-      <label>Data de Alteração:</label>
-      <input type="text" value="{{produto.dataDeAlteracao}}" disabled>
-    </div>
+      <div class="btn-box">
+        <button (click)="DisponivelProduto()" mat-raised-button color="warn">Produto Indisponivel</button>
+        <button routerLink="" mat-raised-button>Voltar</button>
+      </div>
 
-    <div class="btn-box">
-      <button (click)="DisponivelProduto()">Produto Indisponivel</button>
-      <button routerLink="">Voltar</button>
-    </div>
-
-  </form>
-</div>
+    </form>
+  </div>
+</mat-card>

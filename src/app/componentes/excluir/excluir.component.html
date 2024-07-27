@@ -1,0 +1,14 @@
+
+<div *ngIf="produto">
+  <h1>Deseja confirmar a exclusão?</h1>
+  <div>
+    <p>Produto:</p>
+    <p>{{produto.nome}}</p>
+    <p>Departamento:</p>
+    <p>{{produto.departamento}}:</p>
+  </div>
+
+  <div>
+    <button mat-raised-button color="warn" (click)="Excluir">Confirmar Exclusão</button>
+  </div>
+</div>

@@ -1,46 +1,59 @@
+<mat-card>
+  <h1>{{btnTitulo}}</h1>
 
-<h1>{{btnTitulo}}</h1>
+  <form [formGroup]="produtoForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <input type="hidden" formControlName="id">
 
-<form [formGroup]="produtoForm" (ngSubmit)="submit()" #formDit="ngForm">
-  <input type="hidden" formControlName="id">
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Código do Produto</mat-label>
+        <input matInput type="text" formControlName="codigoDoProduto" placeholder="Insira o código do produto" required>
+      </mat-form-field>
+    </div>
 
-  <div class="input-box">
-    <label for="">Código do Produto</label>
-    <input type="text" formControlName="codigoDoProduto" placeholder="Insira o código do produto" required>
-  </div>
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Nome do Produto</mat-label>
+        <input matInput type="text" formControlName="nome" placeholder="Insira o nome do produto" required>
+      </mat-form-field>
+    </div>
 
-  <div class="input-box">
-    <label for="">Nome do Produto</label>
-    <input type="text" formControlName="nome" placeholder="Insira o nome do produto" required>
-  </div>
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Departamento</mat-label>
+        <mat-select id="departamento" formControlName="departamento" required>
+          <mat-option value="MASCULINO">MASCULINO</mat-option>
+          <mat-option value="FEMININO">FEMININO</mat-option>
+          <mat-option value="INFANTIL">INFANTIL</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-  <div class="input-box">
-    <label for="">Departamento</label>
-    <select id="departamento" formControlName="departamento" required>
-      <option value="MASCULINO">MASCULINO</option>
-      <option value="FEMININO">FEMININO</option>
-      <option value="INFANTIL">INFANTIL</option>
-    </select>
-  </div>
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Quantidade</mat-label>
+        <input matInput type="text" formControlName="quantidade" placeholder="Insira a quantidade" required>
+      </mat-form-field>
+    </div>
 
-  <div class="input-box">
-    <label for="">Quantidade</label>
-    <input type="text" formControlName="quantidade" placeholder="Insira a quantidade" required>
-  </div>
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Tamanho</mat-label>
+        <input matInput type="text" formControlName="tamanho" placeholder="Insira o tamanho" required>
+      </mat-form-field>
+    </div>
 
-  <div class="input-box">
-    <label for="">Tamanho</label>
-    <input type="text" formControlName="tamanho" placeholder="Insira o tamanho" required>
-  </div>
+    <div class="input-box">
+      <mat-form-field>
+        <mat-label for="">Preço do Produto</mat-label>
+        <input matInput type="text" formControlName="preco" placeholder="Insira o preço do produto" required>
+      </mat-form-field>
+    </div>
 
-  <div class="input-box">
-    <label for="">Preço do Produto</label>
-    <input type="text" formControlName="preco" placeholder="Insira o preço do produto" required>
-  </div>
+    <div class="btn-box">
+      <button type="submit" [disabled]="!produtoForm.valid" mat-raised-button color="accent">{{btnAcao}}</button>
+      <button routerLink="" mat-raised-button>Voltar</button>
+    </div>
 
-  <div class="btn-box">
-    <button type="submit" [disabled]="!produtoForm.valid">{{btnAcao}}</button>
-    <button routerLink="">Voltar</button>
-  </div>
-
-</form>
+  </form>
+</mat-card>

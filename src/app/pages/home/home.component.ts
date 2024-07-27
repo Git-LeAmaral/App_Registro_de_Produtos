@@ -1,6 +1,8 @@
 import { Produto } from 'src/app/models/Produtos';
 import { ProdutoService } from './../../services/produto.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ExcluirComponent } from 'src/app/componentes/excluir/excluir.component';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,9 @@ export class HomeComponent implements OnInit  {
   produtos: Produto[] = []
   produtosGeral: Produto[] = []
 
-  constructor(private produtoService: ProdutoService) {}
+  colunas = ['Situação' ,'Código do Produto', 'Nome do Produto', 'Departamento', 'Quantidade', 'Tamanho', 'Preço', 'Ações', 'Excluir' ]
+
+  constructor(private produtoService: ProdutoService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.produtoService.GetProdutos().subscribe(data => {
@@ -40,5 +44,17 @@ export class HomeComponent implements OnInit  {
     this.produtos = this.produtosGeral.filter(produto => {
       return produto.nome.toLowerCase().includes(value);
     })
+  }
+
+  OpenDialog(id : number) {
+    console.log('esta clicando', id);
+
+    this.dialog.open(ExcluirComponent, {
+      width: '350px',
+      height: '350px',
+      data: {
+        id: id
+      }
+    });
   }
 }

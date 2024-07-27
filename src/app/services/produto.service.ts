@@ -33,4 +33,8 @@ export class ProdutoService {
   DisponivelProduto(id: number) : Observable<Response<Produto[]>>{
     return this.http.put<Response<Produto[]>>(`${this.apiUrl}/disponivelProduto/${id}`, id)
   }
+
+  ExcluirProduto(id: number) : Observable<Response<Produto[]>> {
+    return this.http.delete<Response<Produto[]>>(`${this.apiUrl}?id=${id}`);
+  }
 }
