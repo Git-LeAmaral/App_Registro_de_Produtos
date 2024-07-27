@@ -29,4 +29,8 @@ export class ProdutoService {
   EditarProduto(produto: Produto) : Observable<Response<Produto[]>> {
     return this.http.put<Response<Produto[]>>(`${this.apiUrl}`, produto);
   }
+
+  DisponivelProduto(id: number) : Observable<Response<Produto[]>>{
+    return this.http.put<Response<Produto[]>>(`${this.apiUrl}/disponivelProduto/${id}`, id)
+  }
 }

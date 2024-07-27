@@ -1,0 +1,61 @@
+
+<div>
+  <h1>Detalhes do Produto</h1>
+</div>
+
+
+<div *ngIf="produto">
+  <form>
+
+    <div class="input-box">
+      <label>Código do produto:</label>
+      <input type="text" value="{{produto.codigoDoProduto}}" disabled>
+    </div>
+
+    <div class="input-box">
+      <label>Nome:</label>
+      <input type="text" value="{{produto.nome}}" disabled>
+    </div>
+
+    <div class="input-box">
+      <label>Preço:</label>
+      <input type="text" value="{{produto.preco}}" disabled>
+    </div>
+
+    <div class="input-box">
+      <label>Tamanho:</label>
+      <input type="text" value="{{produto.tamanho}}" disabled>
+    </div>
+
+    <div class="input-box">
+      <label>Quantidade:</label>
+      <input type="text" value="{{produto.quantidade}}" disabled>
+    </div>
+
+    <div class="input-box">
+      <label>Disponivel:</label>
+      <input type="text" value="{{produto.disponivel == true ? 'Disponível' : 'Indisponível'}}" disabled>
+    </div>
+
+    <div class="input-box">
+      <label>Departamento:</label>
+      <input type="text" value="{{produto.departamento}}" disabled>
+    </div>
+
+    <div class="input-box">
+      <label>Data de Entrada:</label>
+      <input type="text" value="{{produto.dataDeEntrada}}" disabled>
+    </div>
+
+    <div class="input-box">
+      <label>Data de Alteração:</label>
+      <input type="text" value="{{produto.dataDeAlteracao}}" disabled>
+    </div>
+
+    <div class="btn-box">
+      <button (click)="DisponivelProduto()">Produto Indisponivel</button>
+      <button routerLink="">Voltar</button>
+    </div>
+
+  </form>
+</div>
